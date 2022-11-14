@@ -1,6 +1,50 @@
-$(function() {
-	$.getJSON("index.json", function(data) {
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+import { getDatabase, get,ref,child } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+$(async function() {
+	// Import the functions you need from the SDKs you need
+
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+  
+	// Your web app's Firebase configuration
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+	  apiKey: "AIzaSyAA4vutbfxWztwsSV7hz5yxM9EG63p9fbU",
+	  authDomain: "snipes-7db6b.firebaseapp.com",
+	  databaseURL: "https://snipes-7db6b-default-rtdb.firebaseio.com",
+	  projectId: "snipes-7db6b",
+	  storageBucket: "snipes-7db6b.appspot.com",
+	  messagingSenderId: "388342990351",
+	  appId: "1:388342990351:web:581f7cd73da4263279057a",
+	  measurementId: "G-R1596XXGK8"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase
+// Initialize Realtime Database and get a reference to the service
+const database = ref(getDatabase(app));
+
+let data;
+
+await get(child(database,'/')).then((snapshot) => {
+	if (snapshot.exists()) {
+		data = snapshot.val();
+	} else {
+	  console.log("No data available");
+	}
+  }).catch((error) => {
+	console.error(error);
+  });
+
+  
+  console.log(data);
+
+	$.getJSON("json", function(x) {
 		// Populating leaderboards
+		console.log("here");
 		var top = data.leaderboard.top;
 		var snipers = data.leaderboard.snipers;
 		var sniped = data.leaderboard.sniped;
