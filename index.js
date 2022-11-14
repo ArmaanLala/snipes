@@ -42,7 +42,7 @@ await get(child(database,'/')).then((snapshot) => {
   
   console.log(data);
 
-	$.getJSON("json", function(x) {
+	$.getJSON("/", function(x) {
 		// Populating leaderboards
 		console.log("here");
 		var top = data.leaderboard.top;
