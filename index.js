@@ -64,7 +64,7 @@ $(async function () {
   //var scoreToBeat = 1000;
   //var rankOfScoreToBeat = 0;
   //var lastI = -1;
-  for (var i = 0; i < top.length && i < 5; i++) {
+  for (var i = 0; i < top.length && i < 10; i++) {
     var user = top[i];
     /*if (user.score < scoreToBeat) {
 				rankOfScoreToBeat = rankOfScoreToBeat + (i - lastI);
@@ -82,7 +82,7 @@ $(async function () {
     ).appendTo(leaderboardBody);
   }
   var snipersBody = $("#snipers-body");
-  for (var i = 0; i < snipers.length && i < 5; i++) {
+  for (var i = 0; i < snipers.length && i < 10; i++) {
     var user = snipers[i];
     $(
       "<tr><th scope='row'>" +
@@ -95,7 +95,7 @@ $(async function () {
     ).appendTo(snipersBody);
   }
   var snipedBody = $("#sniped-body");
-  for (var i = 0; i < sniped.length && i < 5; i++) {
+  for (var i = 0; i < sniped.length && i < 10; i++) {
     var user = sniped[i];
     $(
       "<tr><th scope='row'>" +
