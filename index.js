@@ -58,7 +58,9 @@ $(async function () {
   var top = data.leaderboard.top;
   var snipers = data.leaderboard.snipers;
   var sniped = data.leaderboard.sniped;
+  var daily = data.daily;
   var leaderboardBody = $("#leaderboard-body");
+  var previousBody = $("#previous-body");
 
   // TODO: Better tie scoring?
   //var scoreToBeat = 1000;
@@ -81,6 +83,18 @@ $(async function () {
         "</td></tr>"
     ).appendTo(leaderboardBody);
   }
+
+  for (var i = 0; i < daily.length; i++) {
+    var user = daily[i];
+    $(
+      "<tr><th>" +
+        (i + 1) +
+        "</th><th></th><td class='user-name'>" +
+        user +
+        "</td></tr>"
+    ).appendTo(previousBody);
+  }
+
   var snipersBody = $("#snipers-body");
   for (var i = 0; i < snipers.length && i < 10; i++) {
     var user = snipers[i];
