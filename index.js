@@ -84,7 +84,7 @@ $(async function () {
     ).appendTo(leaderboardBody);
   }
 
-  for (var i = 0; i < daily.length; i++) {
+  for (var i = 0; i < (daily || []).length; i++) {
     var user = daily[i];
     $(
       "<tr><th>" +
